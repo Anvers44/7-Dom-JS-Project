@@ -1,29 +1,443 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
     <link rel="stylesheet" href="styles.css">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
 </head>
-<body>
+<body class="body">
 
-<script >
-    let num;
-    let length;
-    function arrayOfMultiples (num, length) {
-        let arr=[];
-        let res =0;
-        for (let i=0; i<=length; i++){
-            arr.push(num)
-            res=res+num
+<div class="container">
+    <div class="card1">
+        <img src="/pic/iphone%2014.jpg" alt="iphone14" >
+        <div class="bottom-card">
+            <button class="btn1"> Add to card </button>
+            <div class="heart-like-button"></div>
+        </div>
+    </div>
+
+
+    <div class="card2">
+        <img src="/pic/S22.jpg" alt="S22">
+        <div class="bottom-card">
+            <button class="btn2"> Add to card </button>
+            <div class="heart-like-button"></div>
+        </div>
+    </div>
+
+
+    <div class="card3">
+        <img src="/pic/pixel7.jpg" alt="Pixel7">
+        <div class="bottom-card">
+            <button class="btn3"> Add to card </button>
+            <div class="heart-like-button"></div>
+        </div>
+    </div>
+
+</div>
+
+<div class="div-main">
+
+<table class="table">
+   <thead>
+   <tr class="firstligne">
+       <th>iD</th>
+       <th>Name</th>
+       <th>Quantity</th>
+       <th>Prix</th>
+       <th>Action</th>
+   </tr>
+   </thead>
+    <tbody>
+
+    </tbody>
+
+
+</table>
+
+</div>
+
+
+
+
+<script>
+    let tab = document.querySelector("body")
+
+    let i=0
+
+    let qte1=0
+    let qte2=0
+    let qte3=0
+
+    let btn1 =document.querySelector(".btn1")
+    let btn2 =document.querySelector(".btn2")
+    let btn3 =document.querySelector(".btn3")
+
+    let prx1=450
+    let prx2=400
+    let prx3=399
+
+
+
+
+ let table =[]
+
+
+
+    const button = document.querySelectorAll(".heart-like-button");
+
+    button.forEach(box=>{
+        box.addEventListener("click", () => {
+            if (box.classList.contains("liked")) {
+                box.classList.remove("liked");
+            } else {
+                box.classList.add("liked");
+            }
+        });
+
+    })
+
+
+
+
+
+
+
+
+    btn1.addEventListener("click",()=>{
+
+        if (qte1==0) {
+
+            qte1++
+            table[i] = i
+            i++
+
+            let addtr = document.createElement("tr")
+            addtr.classList.add("dynamictr")
+            tab.appendChild(addtr)
+
+            let idtd = document.createElement("td")
+            idtd.innerText = table.length
+            addtr.appendChild(idtd)
+
+            let nametd = document.createElement("td")
+            nametd.innerText = "iPhone 14"
+            addtr.appendChild(nametd)
+
+            let qte = document.createElement("td")
+            //qte.innerText=10
+            addtr.appendChild(qte)
+
+                let moininput = document.createElement("input")
+                moininput.classList.add("moininput")
+                moininput.setAttribute("type", "button")
+                moininput.setAttribute("value", "  -  ")
+                qte.appendChild(moininput)
+
+
+                let textinput = document.createElement("input")
+                textinput.classList.add("qty")
+                textinput.setAttribute("type", "Text")
+                textinput.setAttribute("value", qte1)
+                qte.appendChild(textinput)
+
+
+
+                let addinput = document.createElement("input")
+                addinput.classList.add("addinput")
+                addinput.setAttribute("type", "button")
+                addinput.setAttribute("value", "  +  ")
+                qte.appendChild(addinput)
+
+
+            let prixtd = document.createElement("td")
+            prixtd.classList.add("prixtd1")
+            prixtd.innerText = prx1*qte1
+            addtr.appendChild(prixtd)
+
+
+            let btndel = document.createElement("button")
+            btndel.innerText = "Delete"
+            btndel.classList.add("button-del")
+            addtr.appendChild(btndel)
+
+            btndel.addEventListener("click", () => {
+                addtr.remove()
+                table.pop()
+                i--
+                qte1=0
+
+            })
+        }else{
+            qte1++
+            let prixtd=document.querySelector(".prixtd1")
+            prixtd.innerText=prx1*qte1
+
+
+            let textinput= document.querySelector(".qty")
+            textinput.setAttribute("value",qte1)
+            qte.appendChild(textinput)
+            qte.appendChild(prixtd)
+
         }
-        return arr
-    }
-    arrayOfMultiples (5,7)
+
+
+        let prixtd=document.querySelector(".prixtd1")
+
+        let textinput= document.querySelector(".qty")
+        let moininput = document.querySelector(".moininput")
+            moininput.addEventListener("click",()=>{
+                if(qte1>1) {
+                    qte1--
+                    textinput.setAttribute("value", qte1)
+                    prixtd.innerText = prx1 * qte1
+                }else{
+                    let addtr= document.querySelector(".dynamictr")
+                    addtr.remove()
+                    table.pop()
+                    i--
+                    qte1=0
+                }
+
+
+            })
+
+        let addinput =document.querySelector(".addinput")
+            addinput.addEventListener("click",()=>{
+                    qte1++
+                textinput.setAttribute("value",qte1)
+                prixtd.innerText=prx1*qte1
+            })
+
+    })
+
+
+
+
+    btn2.addEventListener("click",()=>{
+
+        if (qte2==0) {
+
+            qte2++
+            table[i] = i
+            i++
+
+            let addtr = document.createElement("tr")
+            addtr.classList.add("dynamictr")
+            tab.appendChild(addtr)
+
+            let idtd = document.createElement("td")
+            idtd.innerText = table.length
+            addtr.appendChild(idtd)
+
+            let nametd = document.createElement("td")
+            nametd.innerText = "Samsung S22"
+            addtr.appendChild(nametd)
+
+            let qte = document.createElement("td")
+            //qte.innerText=10
+            addtr.appendChild(qte)
+
+            let moininput = document.createElement("input")
+            moininput.classList.add("moininput2")
+            moininput.setAttribute("type", "button")
+            moininput.setAttribute("value", "  -  ")
+            qte.appendChild(moininput)
+
+
+            let textinput = document.createElement("input")
+            textinput.classList.add("qty2")
+            textinput.setAttribute("type", "Text")
+            textinput.setAttribute("value", qte2)
+            qte.appendChild(textinput)
+
+
+
+            let addinput = document.createElement("input")
+            addinput.classList.add("addinput2")
+            addinput.setAttribute("type", "button")
+            addinput.setAttribute("value", "  +  ")
+            qte.appendChild(addinput)
+
+
+            let prixtd = document.createElement("td")
+            prixtd.classList.add("prixtd2")
+            prixtd.innerText = prx2*qte2
+            addtr.appendChild(prixtd)
+
+
+            let btndel = document.createElement("button")
+            btndel.innerText = "Delete"
+            btndel.classList.add("button-del")
+            addtr.appendChild(btndel)
+
+            btndel.addEventListener("click", () => {
+                addtr.remove()
+                table.pop()
+                i--
+                qte2=0
+
+            })
+        }else{
+            qte2++
+            let prixtd=document.querySelector(".prixtd2")
+            prixtd.innerText=prx2*qte2
+
+            let textinput2= document.querySelector(".qty2")
+            textinput2.setAttribute("value",qte2)
+            qte.appendChild(textinput2)
+            qte.appendChild(prixtd)
+
+        }
+
+
+        let prixtd=document.querySelector(".prixtd2")
+
+        let textinput= document.querySelector(".qty2")
+        let moininput = document.querySelector(".moininput2")
+        moininput.addEventListener("click",()=>{
+            if(qte2>1) {
+                qte2--
+                textinput.setAttribute("value", qte2)
+                prixtd.innerText = prx2 * qte2
+            }else{
+                let addtr= document.querySelector(".dynamictr")
+                addtr.remove()
+                table.pop()
+                i--
+                qte2=0
+
+            }
+
+        })
+
+        let addinput =document.querySelector(".addinput2")
+        addinput.addEventListener("click",()=>{
+            qte2++
+            textinput.setAttribute("value",qte2)
+            prixtd.innerText=prx2*qte2
+        })
+
+    })
+
+
+    btn3.addEventListener("click",()=>{
+
+        if (qte3==0) {
+
+            qte3++
+            table[i] = i
+            i++
+
+            let addtr = document.createElement("tr")
+            addtr.classList.add("dynamictr")
+            tab.appendChild(addtr)
+
+            let idtd = document.createElement("td")
+            idtd.innerText = table.length
+            addtr.appendChild(idtd)
+
+            let nametd = document.createElement("td")
+            nametd.innerText = "Pixel 7"
+            addtr.appendChild(nametd)
+
+            let qte = document.createElement("td")
+            //qte.innerText=10
+            addtr.appendChild(qte)
+
+            let moininput = document.createElement("input")
+            moininput.classList.add("moininput3")
+            moininput.setAttribute("type", "button")
+            moininput.setAttribute("value", "  -  ")
+            qte.appendChild(moininput)
+
+
+            let textinput = document.createElement("input")
+            textinput.classList.add("qty3")
+            textinput.setAttribute("type", "Text")
+            textinput.setAttribute("value", qte3)
+            qte.appendChild(textinput)
+
+
+
+            let addinput = document.createElement("input")
+            addinput.classList.add("addinput3")
+            addinput.setAttribute("type", "button")
+            addinput.setAttribute("value", "  +  ")
+            qte.appendChild(addinput)
+
+
+            let prixtd = document.createElement("td")
+            prixtd.classList.add("prixtd3")
+            prixtd.innerText = prx3*qte3
+            addtr.appendChild(prixtd)
+
+
+            let btndel = document.createElement("button")
+            btndel.innerText = "Delete"
+            btndel.classList.add("button-del")
+            addtr.appendChild(btndel)
+
+            btndel.addEventListener("click", () => {
+                addtr.remove()
+                table.pop()
+                i--
+                qte3=0
+
+            })
+        }else{
+            qte3++
+            let prixtd=document.querySelector(".prixtd3")
+            prixtd.innerText=prx3*qte3
+
+            let textinput3= document.querySelector(".qty3")
+            textinput3.setAttribute("value",qte3)
+            qte.appendChild(textinput3)
+            qte.appendChild(prixtd)
+
+        }
+
+        let prixtd=document.querySelector(".prixtd3")
+
+        let textinput= document.querySelector(".qty3")
+        let moininput = document.querySelector(".moininput3")
+        moininput.addEventListener("click",()=>{
+            if (qte3>1) {
+                qte3--
+                textinput.setAttribute("value", qte3)
+                prixtd.innerText = prx3 * qte3
+
+            }else{
+                let addtr= document.querySelector(".dynamictr")
+                addtr.remove()
+                table.pop()
+                i--
+                qte3=0
+
+            }
+        })
+
+        let addinput =document.querySelector(".addinput3")
+        addinput.addEventListener("click",()=>{
+            qte3++
+            textinput.setAttribute("value",qte3)
+            prixtd.innerText=prx3*qte3
+        })
+
+
+
+    })
+
+
+
+
+
+
+
 
 </script>
+
+
 </body>
 </html>

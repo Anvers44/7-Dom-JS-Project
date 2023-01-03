@@ -1,0 +1,175 @@
+html{
+    font-size: 62.5%;
+    font-family: "Roboto Thin",sans-serif;
+    background-color: antiquewhite;
+
+}
+
+.body{
+    width: 80%;
+    margin: 80px auto;
+}
+
+
+.div-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.table{
+    width: 80%;
+}
+
+
+.firstligne{
+    display: grid;
+    font-size: 1.8rem;
+    grid-template-columns: repeat(5,1fr);
+
+}
+.firstligne th{
+    border-style:solid;
+    border-color: gray;
+    border-width: 2px;
+}
+
+body tr{
+    display: grid;
+     font-size: 1.8rem;
+    grid-template-columns: repeat(5,1fr);
+    margin: 10px auto;
+   }
+
+
+
+tbody td{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    align-items: center;
+
+}
+.dynamictr{
+width: 80%;
+}
+.dynamictr td{
+    display: flex;
+    justify-content: center;
+}
+
+.button-del{
+ margin: 0 5em;
+    height: 30px;
+}
+
+
+.qty {
+    margin: 5px;
+    width: 50px;
+    height: 25px;
+    text-align: center;
+}
+.qty2 {
+    margin: 5px;
+    width: 50px;
+    height: 25px;
+    text-align: center;
+}
+
+.qty3 {
+    margin: 5px;
+    width: 50px;
+    height: 25px;
+    text-align: center;
+}
+
+
+
+
+
+.heart-like-button {
+
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+.heart-like-button:before {
+    margin-top: 2px;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    width: 20px;
+    height: 30px;
+    border-radius: 40px 40px 0 0;
+    background-color: gray;
+    content: "";
+    cursor: pointer;
+    transition: background .4s;
+}
+.heart-like-button:after {
+    margin-top: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin :100% 100%;
+    width: 20px;
+    height: 30px;
+    border-radius: 40px 40px 0 0;
+    background-color: gray;
+    content: "";
+    cursor: pointer;
+    transition: background .4s;
+}
+
+.heart-like-button.liked::before,
+.heart-like-button.liked::after {
+    background-color: #d65076;
+}
+.heart-like-button.liked {
+    animation: liked .4s ease;
+}
+
+
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.bottom-card{
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.card1{
+    height: 300px;
+    width: 180px;
+
+}
+.card1 img{
+    height: 215px;
+    width: 180px;
+}
+.card2{
+    height: 300px;
+    width: 180px;
+}
+
+.card2 img{
+    height: 215px;
+    width: 180px;
+}
+.card3{
+    height: 300px;
+    width: 180px;
+
+}
+.card3 img{
+    height: 215px;
+    width: 180px;
+}
